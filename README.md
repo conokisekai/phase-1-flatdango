@@ -1,31 +1,31 @@
-# phase-1-Flatdango
+# Flatdango
 
-#Learning Goals
+# Learning Goals
 Implement a 'mini' web application using JavaScript.
  
 
-##Introduction
+## Introduction
 For this assessment, you'll be working on Flatdango. Flatiron Movie Theater is open for business! You will be building out an application, Flatdango, that allows a user to purchase movie tickets from the theater.
 
 The instructions below will walk you through the process of ideation and planning your app: deciding on your user interface, planning how the information will be laid out on the page, etc. You should work through all the planning steps before you start doing any coding.
 
  
 
-##Requirements
+## Requirements
 For this project, you must:
 
 Have a well-written README file.
 Fetch data from a local server running JSON DB server.
  
 
-Pre-requisite Data
+## Pre-requisite Data
 You can use this JSON file for your server DB.
 
 db.jsonLinks to an external site. 
 
  
 
-##Project Setup
+## Project Setup
 Once you have the plan in place for the application you want to build take the following steps:
 
 Create a new project folder.
@@ -34,12 +34,12 @@ Add your TM as a contributor to the project. (This is only for grading purposes.
 Please make sure you regularly commit to the repository.
  
 
-##Project Guidelines
+## Project Guidelines
 Your project should conform to the following set of guidelines:
 
  
 
-Core Deliverables:
+## Core Deliverables:
 As a user, I can:
 
 See the first movie's details, including its **poster, title, runtime, showtime, and available tickets** when the page loads. The number of available tickets will need to be derived by subtracting the number of `tickets_sold` from the theater's `capacity`. You will need to make a GET request to the following endpoint to retrieve the film data:
@@ -126,7 +126,7 @@ Example response:
 Buy a ticket for a movie. After clicking the "Buy Ticket" button, I should see the number of available tickets decreasing on the frontend. I should not be able to buy a ticket if the showing is sold out (if there are 0 tickets available). **No persistence is needed for this feature**.
  
 
-##Bonus Deliverables
+## Bonus Deliverables
 These bonus deliverables are here if you want an extra challenge and won't affect your score. **Make sure to commit your work to save your progress before attempting the bonus deliverables!**
 
 Click on a movie in the menu to replace the currently displayed movie's details with the new movie's details. Note that you may have to make an additional GET request to access the movie's details.
@@ -144,7 +144,7 @@ When a movie is sold out (when there are no available tickets remaining), indica
    <li class="film item">(Title of film)</div>
 
    
-##Extra Bonus
+## Extra Bonus
 These extra bonus deliverables involve using `fetch` to update data on the `json-server` backend by using `POST`, `PATCH`, and `DELETE` requests. These are meant for an extra, extra challenge and won't affect your grade. **Make sure to commit your work to save your progress before attempting the extra bonus deliverables!**
 
 1. When a ticket is purchased, persist the updated number of `tickets_sold` on the server. Remember, the frontend shows the number of available tickets based on the `tickets_sold` and the `capacity`, so only the `tickets_sold` should be updated on the backend when a ticket is purchased. You will need to make a request that follows this structure:
@@ -169,6 +169,9 @@ These extra bonus deliverables involve using `fetch` to update data on the `json
 
      Example Response:
    
+
+
+
 
 {
       "id": "1",
@@ -198,9 +201,17 @@ These extra bonus deliverables involve using `fetch` to update data on the `json
 
    Example Response:
 
+
+   ```
+{
+Example Response:
+
    {}
 
    ```
+
+
+
 
 
 
