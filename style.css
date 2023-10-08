@@ -46,9 +46,10 @@ body {
 #movie-poster {
   width: 300px;
   height: 400px;
+  border-radius: 20px;
 }
 
-#buy-ticket-button{
+#buy-ticket-button {
   padding: 10px 30px 10px 30px;
   border: none;
   background-color: red;
@@ -57,7 +58,20 @@ body {
   border-radius: 50px;
 }
 
-#buy-ticket-button:hover{
+#buy-ticket-button:hover {
   background-color: lightcoral;
+  color: black;
+}
+#delete-movie-button {
+  padding: 10px 30px 10px 30px;
+  border: none;
+  background-color: grey;
+  cursor: pointer;
+  color: white;
+  border-radius: 50px;
+}
+
+#delete-movie-button:hover {
+  background-color: lightgrey;
   color: black;
 }
