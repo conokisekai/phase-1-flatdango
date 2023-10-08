@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const movieList = document.getElementById('movie-list');
-  const movieDetails = document.getElementsByClassName('movie-details');
   const buyTicketButton = document.getElementById('buy-ticket-button');
   const movieImage = document.querySelector('.movie-image');
   const movieDescription = document.querySelector('.movie-description');
@@ -48,17 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then((data) => {
       // Check if the data is an array of movies
-      if (Array.isArray(data)) {
+      if (Array.isArray(data) && data.length > 0) {
         moviesData = data; // Store the movie data
 
+        // Display the details of the first movie by default
+        currentMovie = data[0];
+        displayMovieDetails(currentMovie);
+
         // Clear any existing <li> elements
-        movieList.innerHTML = '';
+        movieList.innerHTML = "";
 
         // Create and populate <li> elements for each movie
         data.forEach((movie, index) => {
-          const li = document.createElement('li');
+          const li = document.createElement("li");
           li.textContent = movie.title;
-          li.addEventListener('click', () => {
+          li.addEventListener("click", () => {
             currentMovie = movie;
             displayMovieDetails(movie);
           });
