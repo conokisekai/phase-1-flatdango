@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
 }
 .container {
   display: flex;
@@ -19,4 +20,9 @@ ul#films {
 #movie-poster {
   width: 300px;
   height: 400px;
+}
+.movie-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
