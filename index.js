@@ -9,7 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         }).then(data => {
             // Update the HTML content with the fetched data
-            filmList.textContent = JSON.stringify(data, null, 2);
+            if (Array.isArray(data)) {
+                const ul = document.createElement("ul");
+                data.forEach(movie => {
+                    const li = document.createElement("li");
+                    li.textContent = movie.title;
+                    ul.appendChild(li);
+                });
+                filmList.appendChild(ul);
+            } else {
+                filmList.textContent = "Invalid JSON format. Expected an array of movies.";
+            }
         })
         .catch(error => {
             console.error("Fetch error:", error);
