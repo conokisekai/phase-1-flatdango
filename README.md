@@ -1,214 +1,140 @@
-# Flatdango
+# Flatdango Movie Web App
 
-# Learning Goals
-Implement a 'mini' web application using JavaScript.
- 
+Flatdango is a web application that allows users to purchase movie tickets from Flatiron Movie Theater. This project implements a mini web application using JavaScript, fetching data from a local server running a JSON DB server.
 
-## Introduction
-For this assessment, you'll be working on Flatdango. Flatiron Movie Theater is open for business! You will be building out an application, Flatdango, that allows a user to purchase movie tickets from the theater.
+## Author
 
-The instructions below will walk you through the process of ideation and planning your app: deciding on your user interface, planning how the information will be laid out on the page, etc. You should work through all the planning steps before you start doing any coding.
+Conrad Kambi
+https://github.com/conokisekai
 
- 
+## Learning Goals
 
-## Requirements
-For this project, you must:
+The main learning goals of this project include:
 
-Have a well-written README file.
-Fetch data from a local server running JSON DB server.
- 
-
-## Pre-requisite Data
-You can use this JSON file for your server DB.
-
-db.jsonLinks to an external site. 
-
- 
+-   Implementing a web application using JavaScript.
+-   Fetching data from a local server running a JSON DB server.
+-   Creating a user interface for viewing movie details and purchasing tickets.
 
 ## Project Setup
-Once you have the plan in place for the application you want to build take the following steps:
 
-Create a new project folder.
-Create a new GitHub repository (NB: ENSURE IT IS PRIVATE).
-Add your TM as a contributor to the project. (This is only for grading purposes. We promise we won't steal your code)
-Please make sure you regularly commit to the repository.
- 
+Follow these steps to set up the project:
+
+1.  **Create a new project folder:** Create a new folder for your project on your local machine.
+    
+2.  **Create a new GitHub repository:** Create a private GitHub repository for your project. Add your TM as a contributor for grading purposes.
+    
+3.  **Clone the repository:** Clone the repository to your local machine using the following command:
+    
+    `git clone <repository_url>` 
+    
+4.  **Install dependencies:** No additional dependencies are required for this project.
+
+## Getting Started
+
+To run the project locally, follow these steps:
+
+1.  **Clone the repository:**
+    
+    `git clone <repository_url>` 
+    
+2.  **Navigate to the project folder:**
+    
+    `cd flatdango` 
+    
+3.  **Open the `index.html` file in your browser to view the application.**
+    
 
 ## Project Guidelines
-Your project should conform to the following set of guidelines:
 
- 
+### Core Deliverables
 
-## Core Deliverables:
-As a user, I can:
+As a user, you can:
 
-See the first movie's details, including its **poster, title, runtime, showtime, and available tickets** when the page loads. The number of available tickets will need to be derived by subtracting the number of `tickets_sold` from the theater's `capacity`. You will need to make a GET request to the following endpoint to retrieve the film data:
- 
+-   **View Movie Details:**
+    
+    -   When the page loads, you can see the first movie's details, including its poster, title, runtime, showtime, and available tickets. The number of available tickets is calculated by subtracting the number of tickets_sold from the theater's capacity. Data is fetched from the endpoint: 
+        `GET /films/1` 
+        
+-   **See a Menu of All Movies:**
+    
+    -   On the left side of the page, there is a menu displaying all movies in the `ul#films` element when the page loads. You can style each film in the list by adding the classes `film item` to each `li` element. Data is fetched from the endpoint:
+        
+        `GET /films` 
+        
+-   **Buy a Ticket:**
+    
+    -   You can buy a ticket for a movie. After clicking the "Buy Ticket" button, the number of available tickets decreases on the frontend. You cannot buy a ticket if the showing is sold out (if there are 0 tickets available). No persistence is needed for this feature.
 
-   GET /films/1
+### Bonus Deliverables
 
- Example Response:
+-   **Switch Movie Details:**
+    
+    -   You can click on a movie in the menu to replace the currently displayed movie's details with the new movie's details. An additional GET request may be required to access the movie's details.
+-   **Indicate Sold Out Movies:**
+    
+    -   When a movie is sold out (no available tickets remaining), the button text changes to "Sold Out". The film item in the `ul#films` menu is updated by adding a class of `sold-out` to the film.
 
-   {
+### Extra Bonus
 
-     "id": "1",
-
-     "title": "The Giant Gila Monster",
-
-     "runtime": "108",
-
-     "capacity": 30,
-
-     "showtime": "04:00PM",
-
-     "tickets_sold": 27,
-
-     "description": "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
-
-     "poster": "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg"
-
-   }
-
-
-See a menu of all movies on the left side of the page in the `ul#films` element when the page loads. (_optional_: you can style each film in the list by adding the classes `film item` to each `li` element.) There is a placeholder `li` in the `ul#films` element that is hardcoded in the HTML — feel free to remove that element by editing the HTML file directly, or use JavaScript to remove the placeholder element before populating the list. You will need to make a GET request to the following endpoint to retrieve the film data:
-
- 
-
-   GET /films
-
-Example response:
-
-   [
-
-      {
-
-        "id": "1",
-
-        "title": "The Giant Gila Monster",
-
-        "runtime": "108",
-
-        "capacity": 30,
-
-        "showtime": "04:00PM",
-
-        "tickets_sold": 27,
-
-        "description": "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
-
-        "poster": "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg"
-
-      },
-
-      {
-
-        "id": "2",
-
-        "title": "Manos: The Hands Of Fate",
-
-        "runtime": "118",
-
-        "capacity": 50,
-
-        "showtime": "06:45PM",
-
-        "tickets_sold": 44,
-
-        "description": "A family gets lost on the road and stumbles upon a hidden, underground, devil-worshiping cult led by the fearsome Master and his servant Torgo.",
-
-        "poster": "https://www.gstatic.com/tv/thumb/v22vodart/47781/p47781_v_v8_ac.jpg"
-
-      }
-
-   ]
- 
-
-Buy a ticket for a movie. After clicking the "Buy Ticket" button, I should see the number of available tickets decreasing on the frontend. I should not be able to buy a ticket if the showing is sold out (if there are 0 tickets available). **No persistence is needed for this feature**.
- 
-
-## Bonus Deliverables
-These bonus deliverables are here if you want an extra challenge and won't affect your score. **Make sure to commit your work to save your progress before attempting the bonus deliverables!**
-
-Click on a movie in the menu to replace the currently displayed movie's details with the new movie's details. Note that you may have to make an additional GET request to access the movie's details.
- 
-
-When a movie is sold out (when there are no available tickets remaining), indicate that the movie is sold out by changing the button text to "Sold Out". Also update the film item in the `ul#films` menu by adding a class of `sold-out` to the film. For reference, here's what the contents of the `ul#films` element should look like with a sold out film:
- 
-
-  html
-
-   <li class="film item">(Title of film)</li>
-
-   <li class="sold-out film item">(Title of a sold-out film)</li>
-
-   <li class="film item">(Title of film)</div>
-
-   
-## Extra Bonus
-These extra bonus deliverables involve using `fetch` to update data on the `json-server` backend by using `POST`, `PATCH`, and `DELETE` requests. These are meant for an extra, extra challenge and won't affect your grade. **Make sure to commit your work to save your progress before attempting the extra bonus deliverables!**
-
-1. When a ticket is purchased, persist the updated number of `tickets_sold` on the server. Remember, the frontend shows the number of available tickets based on the `tickets_sold` and the `capacity`, so only the `tickets_sold` should be updated on the backend when a ticket is purchased. You will need to make a request that follows this structure:
-
-
- PATCH /films/:id
-
-   Request Headers: {
-
-     Content-Type: application/json
-
-   }
-
-
-   Request Body: {
-
-     "tickets_sold": 28
-
-   }
-
+-   **Persist Ticket Purchases:**
+    
+    -   When a ticket is purchased, the updated number of tickets_sold is persisted on the server. The frontend shows the number of available tickets based on `tickets_sold` and `capacity`. Only `tickets_sold` should be updated on the backend when a ticket is purchased. Use the following request structure:
+        
   
 
-     Example Response:
-   
+> PATCH /films/:id
 
+  Request Headers: 
 
+>     {
+>           Content-Type: application/json
+>         }
 
+    Request Body: 
 
-{
-      "id": "1",
+>     {
+>       "tickets_sold": 28
+>     }`
 
-      "title": "The Giant Gila Monster",
+        
+-   **Delete Movies:**
+    
+    -   You can delete a film from the server by clicking the delete button next to each film in the `ul#films` menu. When the button is clicked, the film is removed from the list, and the film is deleted on the server.
+        
+        `DELETE /films/:id` 
 
-      "runtime": "108",
+### Note:
+This project uses a local server running a JSON DB server to fetch and persist data.
+Make sure to follow the project guidelines and requirements to complete the core and bonus deliverables.
 
-      "capacity": 30,
+Feel free to document your code with comments or explanations to make it easy for others (or your future self) to understand how your solution works.
 
-      "showtime": "04:00PM",
+Good luck with the challenges, and happy coding! If you have any questions or need further assistance, don't hesitate to ask.
 
-      "tickets_sold": 28,
+# LICENCE
+This is free and unencumbered software released into the public domain.
 
-      "description": "A giant lizard terrorizes a rural Texas community and a heroic teenager attempts to destroy the creature.",
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
 
-      "poster": "https://www.gstatic.com/tv/thumb/v22vodart/2157/p2157_v_v8_ab.jpg"
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
 
-   }
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
 
-
- Delete a film from the server. Add a delete button next to each film in the `ul#films` menu. When the button is clicked, remove the film from the list
-   and also delete the film on the server:
-
-
-   DELETE /films/:id
-
-   Example Response:
-
-
-   ```
-{
-Example Response:
-
-   {}
-
-   ```
+For more information, please refer to <https://unlicense.org> the index.html file in your browser to view the application.
 
 
 
